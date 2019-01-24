@@ -1,6 +1,11 @@
 {
   "version": 2,
-  "alias": ["czytomaszewsprawdzilkolokwium.pl", "www.czytomaszewsprawdzilkolokwium.pl"],
+  "alias": [
+    "czytomaszewsprawdzilkolokwium.pl",
+    "www.czytomaszewsprawdzilkolokwium.pl",
+    "czytomaszewsprawdzilkolokwium.com.pl",
+    "www.czytomaszewsprawdzilkolokwium.com.pl"
+  ],
   "regions": ["bru"],
   "builds": [
     { "src": "index.js", "use": "@now/node" },
