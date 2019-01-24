@@ -1,11 +1,23 @@
 {
   "version": 2,
+  "alias": ["czytomaszewsprawdzilkolokwium.pl", "www.czytomaszewsprawdzilkolokwium.pl"],
   "regions": ["bru"],
   "builds": [
-    { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
+    { "src": "index.js", "use": "@now/node" },
+    { "src": "crawler.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } },
+    { "src": "reset.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
   ],
   "env": {
-    "LOGIN": "@tomaszew-login",
-    "PASSWORD": "@tomaszew-password"
+    "PJATK_LOGIN": "@tomaszew-login",
+    "PJATK_PASSWORD": "@tomaszew-password",
+    "RESET_LOGIN": "@tomaszew-reset-login",
+    "RESET_PASSWORD": "@tomaszew-reset-password",
+    "REDIS_HOST": "@tomaszew-redis-host",
+    "REDIS_PORT": "@tomaszew-redis-port",
+    "REDIS_PASSWORD": "@tomaszew-redis-password",
+    "NODE_ENV": "production"
+  },
+  "github": {
+    "enabled": false
   }
 }

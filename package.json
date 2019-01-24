@@ -2,11 +2,6 @@
   "name": "tomaszew",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.mjs",
-  "scripts": {
-    "start": "node --experimental-modules ./server/index.mjs",
-    "crawl": "node --experimental-modules ./crawler/index.mjs"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bibixx/czytomaszewsprawdzilkolokwium.pl.git"
@@ -19,7 +14,12 @@
   },
   "homepage": "https://github.com/bibixx/czytomaszewsprawdzilkolokwium.pl#readme",
   "dependencies": {
+    "bluebird": "^3.5.3",
+    "chalk": "^2.4.2",
     "chrome-aws-lambda": "^1.11.2",
-    "puppeteer-core": "^1.11.0"
+    "dotenv": "^6.2.0",
+    "puppeteer": "^1.11.0",
+    "puppeteer-core": "^1.11.0",
+    "redis": "^2.8.0"
   }
 }
