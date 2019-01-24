@@ -19,14 +19,14 @@ const DATA_URL = 'https://pejot.sharepoint.com/sites/tomaszew/2018_2019_Z/PPJ';
 const { PJATK_LOGIN: LOGIN, PJATK_PASSWORD: PASSWORD } = process.env;
 
 module.exports = async () => {
-  console.log(chalk.cyan("[CRAWLER START]"));
-  console.log(chalk.grey("[1/5] Starting crawler..."));
+  console.log(chalk.cyan("[CRAWLER][START]"));
+  console.log(chalk.grey("[CRAWLER][1/5] Starting crawler..."));
   const browser = await launch();
 
   const page = await browser.newPage();
   await page.goto(DATA_URL);
 
-  console.log(chalk.grey("[2/5] Logging in on Microsoft page..."));
+  console.log(chalk.grey("[CRAWLER][2/5] Logging in on Microsoft page..."));
   const $loginInput = await page.$('[name="loginfmt"]');
   await $loginInput.type(LOGIN);
   
@@ -35,7 +35,7 @@ module.exports = async () => {
   const passwordInputSelector = '[name="Password"]';
   await page.waitForSelector(passwordInputSelector);
   
-  console.log(chalk.grey("[3/5] Logging in on PJATK page..."));
+  console.log(chalk.grey("[CRAWLER][3/5] Logging in on PJATK page..."));
   const $passwordInput = await page.$(passwordInputSelector);
   await $passwordInput.type(PASSWORD);
   await $passwordInput.press('Enter');
@@ -47,7 +47,7 @@ module.exports = async () => {
 
   await page.waitForRequest(DATA_URL);
 
-  console.log(chalk.grey("[4/5] Waiting for cells..."));
+  console.log(chalk.grey("[CRAWLER][4/5] Waiting for cells..."));
   const headerCellsSelector = '[data-sp-a11y-id="ControlZone_a5f77b8c-a9ae-431c-bf09-e67a5ed41028"] .ms-DetailsList-headerWrapper .ms-DetailsHeader-cell';
   await page.waitForSelector(headerCellsSelector);
 
@@ -61,8 +61,8 @@ module.exports = async () => {
     .map(cell => cell.replace(String.fromCharCode(59149), ''))
     .filter(cell => !(/Z[0-9\.]+/).test(cell));
 
-  console.log(chalk.grey(`[5/5] Current marks: ${JSON.stringify(nonExerciseMarks)}`));
-  console.log(chalk.cyan("[CRAWLER END]"));
+  console.log(chalk.grey(`[CRAWLER][5/5] Current marks: ${JSON.stringify(nonExerciseMarks)}`));
+  console.log(chalk.cyan("[CRAWLER][END]"));
 
   return nonExerciseMarks;
 };

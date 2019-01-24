@@ -1,7 +1,8 @@
+const { basicAuth } = require('./utils/basicAuth');
 const clientFactory = require("./utils/redis");
 const getNonExerciseMarks = require('./utils/crawler');
 
-module.exports = async (req, res) => {
+module.exports = basicAuth(async (req, res) => {
   const client = clientFactory();
 
   const currentMarksNo = Number(await client.getAsync("currentMarksNo"));
@@ -15,4 +16,4 @@ module.exports = async (req, res) => {
 
   res.end(String(areMarksDifferent));
   client.end(true);
-}
+});

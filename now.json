@@ -4,8 +4,8 @@
   "regions": ["bru"],
   "builds": [
     { "src": "index.js", "use": "@now/node" },
-    { "src": "crawler.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } },
-    { "src": "reset.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
+    { "src": "reset.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } },
+    { "src": "crawler.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
   ],
   "env": {
     "PJATK_LOGIN": "@tomaszew-login",
@@ -16,8 +16,5 @@
     "REDIS_PORT": "@tomaszew-redis-port",
     "REDIS_PASSWORD": "@tomaszew-redis-password",
     "NODE_ENV": "production"
-  },
-  "github": {
-    "enabled": false
   }
 }

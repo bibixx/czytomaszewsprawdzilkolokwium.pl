@@ -1,7 +1,8 @@
+const { basicAuth } = require('./utils/basicAuth');
 const getNonExerciseMarks = require('./utils/crawler');
 const clientFactory = require("./utils/redis");
 
-module.exports = async (req, res) => {
+module.exports = basicAuth(async (req, res) => {
   const client = clientFactory();
   const marks = await getNonExerciseMarks();
 
@@ -12,4 +13,4 @@ module.exports = async (req, res) => {
 
   res.end(JSON.stringify(marks));
   client.end(true);
-}
+});
