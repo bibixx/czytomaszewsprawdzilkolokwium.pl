@@ -1,4 +1,11 @@
 {
-  "alias": ["czytomaszewsprawdzilkolokwium.pl", "www.czytomaszewsprawdzilkolokwium.pl"],
-  "regions": ["bru"]
+  "version": 2,
+  "regions": ["bru"],
+  "builds": [
+    { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
+  ],
+  "env": {
+    "LOGIN": "@tomaszew-login",
+    "PASSWORD": "@tomaszew-password"
+  }
 }
