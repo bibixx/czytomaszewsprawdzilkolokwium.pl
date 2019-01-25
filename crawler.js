@@ -12,6 +12,8 @@ module.exports = basicAuth(async (req, res) => {
 
   if (marks.length !== currentMarksNo) {
     await client.setAsync("isChecked", true);
+  } else {
+    await client.setAsync("isChecked", false);
   }
 
   res.end(String(areMarksDifferent));
