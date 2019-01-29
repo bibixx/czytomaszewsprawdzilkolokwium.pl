@@ -10,7 +10,7 @@ module.exports = basicAuth(async (req, res) => {
   const marks = await getNonExerciseMarks();
   const areMarksDifferent = marks.length === currentMarksNo;
 
-  if (marks.length !== currentMarksNo) {
+  if (marks.length > currentMarksNo) {
     await client.setAsync("isChecked", true);
   } else {
     await client.setAsync("isChecked", false);
